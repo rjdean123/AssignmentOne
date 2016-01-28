@@ -28,6 +28,9 @@ int Image32::AddRandomNoise(const float& noise,Image32& outputImage) const
 	return 0;
 }
 
+/*
+ *	scales each pixel's rgb by the brightness factor to increase brightness
+ */
 int Image32::Brighten(const float& brightness,Image32& outputImage) const
 {
 	int r1, g1, b1;
@@ -51,6 +54,7 @@ int Image32::Brighten(const float& brightness,Image32& outputImage) const
 			if (b1 < 0)
 				b1 = 0;
 
+			// write clamped values to outputImage
 			outputImage.pixel(x,y).r = r1;
 			outputImage.pixel(x,y).g = g1;
 			outputImage.pixel(x,y).b = b1;
